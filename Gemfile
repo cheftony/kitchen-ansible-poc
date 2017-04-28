@@ -1,0 +1,6 @@
+gen 'serverspec'
+gem 'thor', '0.19.1'
+gem 'test-kitchen'
+gem 'kitchen-docker'
+gem 'kitchen-ansible'
+gem 'kitchen-verifier-serverspec'

@@ -1,0 +1,7 @@
+- name: kitchen-ansible-poc
+  hosts: server
+  user: root
+  vars:
+    worker_connections: 2048
+  roles:
+    - nginx

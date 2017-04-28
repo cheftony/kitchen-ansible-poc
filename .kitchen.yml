@@ -1,0 +1,31 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+  run_command: /usr/sbin/init
+  transport:
+    max_ssh_sessions: 20
+
+provisioner:
+  name: ansible_playbook
+  roles_path: roles
+  hosts: test-kitchen
+  require_chef_for_busser: false
+  ansible_verbose: true
+  ansible_verbosity: 2
+
+platforms:
+  - name: centos
+    driver_plugin: docker
+    driver_config:
+      image: centos
+      platform: centos
+      privileged: true
+      provision_command:
+        - yum install -y iproute rubygems
+
+verifier:
+  ruby_bindir: '/usr/bin'
+
+suites:
+  - name: default
